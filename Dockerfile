@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM arm32v7/debian:bullseye-slim
 
 ENV LANG C.UTF-8
 
