@@ -1,11 +1,13 @@
+# ARM32 agrego
 FROM arm32v7/debian:bullseye-slim
 
 ENV LANG C.UTF-8
 
 RUN mkdir /gef /pwn && useradd -ms /bin/bash --home-dir /gef gef
 
+# Agrego @build-essentials 
 RUN apt update && \
-  apt install procps python python3-pip python3-dev gdb git make gcc g++ wget cmake pkg-config binutils -y
+  apt install build-essentials procps python python3-pip python3-dev gdb git make gcc g++ wget cmake pkg-config binutils -y
 
 RUN wget -q -O /gef/update-trinity.sh https://raw.githubusercontent.com/hugsy/stuff/master/update-trinity.sh && \
   sed -i 's/sudo make install install3/make install3/g' /gef/update-trinity.sh && \
